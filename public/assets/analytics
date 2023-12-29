@@ -1,0 +1,30 @@
+
+function piResponse() {
+		piSetCookie('visitor_id967183', '194589805', 3650);
+			piSetCookie('visitor_id967183-hash', 'abb1db1cf86d029df2ed070b8937c6d307d752fa70c1244037d380f2aa78d99722d5e894d7fd8c2e6c0c8ec9fc65fd337d28b18e', 3650);
+		
+		if (document.location.protocol != "https:" || (document.location.protocol == "https:" && true)) {
+		var analytics_link = document.location.protocol + "//" + "customers.arvest.com/analytics?";
+		pi.tracker.visitor_id='194589805';
+
+				pi.tracker.visitor_id_sign='abb1db1cf86d029df2ed070b8937c6d307d752fa70c1244037d380f2aa78d99722d5e894d7fd8c2e6c0c8ec9fc65fd337d28b18e';
+		
+				pi.tracker.campaign_id='138064';
+		
+		var variables = 'conly=true';
+		for (property in pi.tracker) {
+					variables += "&" + property + "=" + pi.tracker[property];
+				}
+		var headID = document.getElementsByTagName("head")[0];
+		piScriptObj[piScriptNum] = document.createElement('script');
+		piScriptObj[piScriptNum].type = 'text/javascript';
+		piScriptObj[piScriptNum].src = analytics_link + variables;
+		headID.appendChild(piScriptObj[piScriptNum]);
+		piScriptObj[piScriptNum].onload = function() { return; }
+	}
+	}
+piResponse();
+
+
+
+
